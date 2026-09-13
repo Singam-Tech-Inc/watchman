@@ -109,8 +109,8 @@ std::optional<w_string> find_fstype_in_linux_proc_mounts(
 }
 
 w_string w_fstype_detect_macos_nfs(w_string fstype, w_string edenfs_indicator) {
-  if (facebook::eden::is_edenfs_nfs_mount(
-          fstype.view(), edenfs_indicator.view())) {
+  if (facebook::eden::is_edenfs_fs_mount(
+          fstype.view(), edenfs_indicator.string())) {
     return edenfs_indicator;
   }
   return fstype;
